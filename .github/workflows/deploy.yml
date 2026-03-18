@@ -27,7 +27,7 @@ jobs:
         docker buildx build \
           --platform linux/amd64,linux/arm64 \
           -t impossiblecandy/notes-api:latest \
-          --push .
+          --push ./app
 
     - name: Scan with Trivy
       uses: aquasecurity/trivy-action@master
