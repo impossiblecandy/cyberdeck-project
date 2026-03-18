@@ -34,11 +34,3 @@ jobs:
         with:
           image-ref: impossiblecandy/notes-api:latest
 
-      - name: Setup kubeconfig
-        run: |
-          mkdir -p ~/.kube
-          printf "%s" "${{ secrets.KUBECONFIG }}" > ~/.kube/config
-
-      - name: Deploy to Kubernetes
-        run: |
-          kubectl rollout restart deployment notes-api
