@@ -36,7 +36,7 @@ jobs:
     - name: Setup kubeconfig
        run: |
          mkdir -p ~/.kube
-         echo "${{ secrets.KUBECONFIG }}" > ~/.kube/config
+         printf "%s" "${{ secrets.KUBECONFIG }}" > ~/.kube/config
     - name: Deploy to Kubernetes
        run: |
         kubectl rollout restart deployment notes-api
