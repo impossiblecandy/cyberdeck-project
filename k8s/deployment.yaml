@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: notes-api
-        image: notes-api
-        imagePullPolicy: Never
+        image: impossiblecandy/notes-api
+        imagePullPolicy: Always
         ports:
         - containerPort: 8000
