@@ -33,3 +33,10 @@ jobs:
       uses: aquasecurity/trivy-action@master
       with:
         image-ref: impossiblecandy/notes-api:latest
+    - name: Setup kubeconfig
+       run: |
+         mkdir -p ~/.kube
+         echo "${{ secrets.KUBECONFIG }}" > ~/.kube/config
+    - name: Deploy to Kubernetes
+       run: |
+        kubectl rollout restart deployment notes-api
